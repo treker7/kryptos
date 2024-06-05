@@ -3,8 +3,9 @@ morse_code = """
 -.. .. --. . - .- .-.. . . . .. -. - . .-. .--. .-. . - .- - ..
 . . ... .... .- -.. --- .-- . . ..-. --- .-. -.-. . ... . . . . .
 .-.. ..- -.-. .. -.. . . . -- . -- --- .-. -.-- .
-- .. ... -.-- --- ..- .-. .--. --- ... .. - .. --- -. . .-. --.-
+- .. ... -.-- --- ..- .-. .--. --- ... .. - .. --- -. .
 ... --- ...
+.-. --.-
 """
 
 morse_code_translation = {
@@ -25,11 +26,6 @@ morse_code_translation = {
 
 k0 = ""
 for morse_char in morse_code.split():
-    k0 += morse_code_translation[morse_char]
+    if (morse_char != '.'):
+        k0 += morse_code_translation[morse_char]
 print(k0)
-
-bin = ""
-for morse_char in morse_code.split():
-    bin += str(int(morse_char.replace(".", "0").replace("-", "1"), 2)) + " "
-print(bin)
-
