@@ -1,7 +1,7 @@
 from statistics import *
 
-ciphertext = "FLRVQQPRNGKSSNYPVTTMZFPK"
 plaintext =  "EASTNORTHEASTBERLINCLOCK"
+ciphertext = "FLRVQQPRNGKSSNYPVTTMZFPK"
 
 diffs = []
 for i in range(len(ciphertext)):
