@@ -1,3 +1,5 @@
+from statistics import *
+
 kryptos_vigenere_table = """
 KRYPTOSABCDEFGHIJLMNQUVWXZKRYP
 RYPTOSABCDEFGHIJLMNQUVWXZKRYPT
@@ -28,16 +30,20 @@ ZKRYPTOSABCDEFGHIJLMNQUVWXZKRY
 """
 
 kryptos_alphabet = "KRYPTOSABCDEFGHIJLMNQUVWXZ"
-kryptos_alphabet_index_map = dict(map(lambda i: (ord(kryptos_alphabet[i]) - ord("A"), i), range(len(kryptos_alphabet))))
-
 kryptos_vigenere_alphabets = kryptos_vigenere_table.split()
+kryptos_alphabet_diffs = []
 
-while True:
-    input_chars = input("Enter key and plaintext characters: ")
-    char1 = ord(input_chars[0]) - ord("A")
-    char2 = ord(input_chars[1]) - ord("A")
+print("KRYPTOS VIGENERE ALPHABET DIFFS: ")
 
-    vigenere_table_row = kryptos_alphabet_index_map[char1]
-    vigenere_table_col = kryptos_alphabet_index_map[char2]
-    vigenere_char = kryptos_vigenere_alphabets[vigenere_table_row][vigenere_table_col]
-    print(vigenere_char)
+for r in range(len(kryptos_alphabet)):
+    for c in range(len(kryptos_alphabet)):
+        plaintext_char = ord(kryptos_alphabet[c])
+        ciphertext_char = ord(kryptos_vigenere_alphabets[r][c])
+
+        diff = abs(plaintext_char - ciphertext_char)
+        kryptos_alphabet_diffs.append(diff)
+
+print("Count = ", len(kryptos_alphabet_diffs))
+print("Mode = ", mode(kryptos_alphabet_diffs))
+print("Mean = ", mean(kryptos_alphabet_diffs))
+print("Std Dev = ", stdev(kryptos_alphabet_diffs))

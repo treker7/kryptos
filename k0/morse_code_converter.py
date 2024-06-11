@@ -8,7 +8,7 @@ morse_code = """
 .-. --.-
 """
 
-morse_code_translation = {
+morse_code_translation_table = {
     '.-' :   'A', '-...' : 'B',
     '-.-.' : 'C', '-..' :  'D',
     '.' :    'E', '..-.' : 'F',
@@ -27,5 +27,5 @@ morse_code_translation = {
 k0 = ""
 for morse_char in morse_code.split():
     if (morse_char != '.'):
-        k0 += morse_code_translation[morse_char]
+        k0 += morse_code_translation_table[morse_char]
 print(k0)
